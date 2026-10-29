@@ -83,7 +83,7 @@ export function SiteHeader() {
       </Suspense>
 
       <Container className="flex min-h-20 items-center justify-between gap-4">
-        <Wordmark />
+        <Wordmark eager />
 
         <nav aria-label="Main" className="hidden xl:block">
           <Suspense fallback={<NavLinks pathname={null} variant="desktop" />}>

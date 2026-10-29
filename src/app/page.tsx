@@ -7,6 +7,26 @@ import { safetyNotice, site } from "@/content/site";
 import { services } from "@/content/services";
 import { faqs } from "@/content/resources";
 import { programmes, statusLabels } from "@/content/programmes";
+import { HeroCarousel, type HeroSlide } from "@/components/hero-carousel";
+import hero1 from "../../public/images/hero/hero-1.webp";
+import hero2 from "../../public/images/hero/hero-2.webp";
+import hero3 from "../../public/images/hero/hero-3.webp";
+
+/** EDIT HERE: hero slideshow photos and their descriptions for screen readers. */
+const heroSlides: HeroSlide[] = [
+  {
+    src: hero1,
+    alt: "A facilitator leads a calm conversation with a group of adults seated around a low table in a bright room.",
+  },
+  {
+    src: hero2,
+    alt: "Community members of different ages sit together under a shady tree, listening to a man speaking with them.",
+  },
+  {
+    src: hero3,
+    alt: "A woman in a navy suit talks with a smiling family of three generations seated in a sunlit room.",
+  },
+];
 
 export const metadata: Metadata = {
   title: { absolute: `${site.name} | Nairobi, Kenya` },
@@ -69,8 +89,8 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <div className="bg-navy text-white">
-        <Container className="py-16 sm:py-24">
+      <HeroCarousel slides={heroSlides}>
+        <Container className="pt-16 pb-28 sm:pt-28 sm:pb-36">
           <p className="mb-4 text-sm font-semibold tracking-wide text-mist uppercase">
             Community-based organisation · Kasarani, Nairobi
           </p>
@@ -90,7 +110,7 @@ export default function HomePage() {
             </ButtonLink>
           </div>
         </Container>
-      </div>
+      </HeroCarousel>
 
       {/* Introduction */}
       <Section id="about-azarya" title="About Azarya" tone="white">

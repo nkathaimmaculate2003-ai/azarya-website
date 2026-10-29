@@ -79,7 +79,8 @@ All editable content lives in `src/content/`. Each file has comments at the top 
 | Mediation steps, benefits, limitations | [src/app/mediation-explained/page.tsx](src/app/mediation-explained/page.tsx) |
 | Privacy notice | [src/app/privacy-notice/page.tsx](src/app/privacy-notice/page.tsx) |
 | Brand colours and fonts | [src/app/globals.css](src/app/globals.css) and [src/app/layout.tsx](src/app/layout.tsx) |
-| Logo (currently a text wordmark) | [src/components/wordmark.tsx](src/components/wordmark.tsx) |
+| Logo, hero photos and browser-tab icon | Put the original files in `Assets/` (same names), then run `node scripts/optimize-images.mjs` |
+| Hero slideshow photo descriptions (alt text) | `heroSlides` in [src/app/page.tsx](src/app/page.tsx) |
 
 **Adding an article:** copy an existing entry in `resources.ts`, give it a new unique `slug`, and set the `published` and `reviewed` dates. It appears automatically on the resources page, gets its own page at `/legal-awareness/<slug>` and is added to the sitemap.
 
@@ -108,11 +109,15 @@ src/
     api/contact/route.ts      Contact form endpoint (server-side validation, spam checks)
     sitemap.ts, robots.ts     /sitemap.xml and /robots.txt
     opengraph-image.tsx       Social sharing image
-    icon.svg                  Browser tab icon
+    icon.png, apple-icon.png  Browser tab and home-screen icons (generated from the logo)
     layout.tsx, globals.css   Site-wide layout, metadata, fonts and colours
   components/                 Reusable UI (header, footer, form, cards, notices)
   content/                    Editable site content (see section 6)
   lib/                        Form validation, email sending, rate limiting, helpers
+public/
+  logo.png, images/hero/      Optimised logo and hero photos (generated, don't edit by hand)
+Assets/                       Original, full-size logo and photos
+scripts/optimize-images.mjs   Turns the originals in Assets/ into the optimised files
 ```
 
 ## 8. Security, privacy and accessibility notes
@@ -144,7 +149,8 @@ No analytics or advertising trackers are included. If the organisation later dec
 - [ ] Opening days and hours, if publishing them
 - [ ] Expected response time for enquiries
 - [ ] Exact map pin / Google Maps share link (set `mapUrl` in `site.ts`)
-- [ ] Approved logo and brand assets (replace the text wordmark and social image)
+- [ ] Confirm the logo is final, and update the social-sharing image (`src/app/opengraph-image.tsx`) to match if wanted
+- [ ] Confirm the organisation has the right to use the three hero photos, and that they are not presented as photos of Azarya's own activities. If they show real people, make sure those people have given permission
 - [ ] Public registration details, if applicable (About page)
 - [ ] Official social media links (set `social` in `site.ts`)
 - [ ] Whether appointments are required and whether any services have fees
