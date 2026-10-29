@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/*
+ * Brand colours (from the website brief). Change them here to restyle the
+ * whole site. Each one becomes a Tailwind class, e.g. bg-navy, text-teal.
+ */
+@theme {
+  --color-navy: #16384d;
+  --color-teal: #1d6970;
+  --color-teal-dark: #154e54;
+  --color-offwhite: #f7f6f2;
+  --color-mist: #e6ebed;
+  --color-charcoal: #2d3741;
+
+  --font-sans: var(--font-source-sans), system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: var(--font-source-serif), Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-offwhite);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  /* Body-text links: underlined so they never rely on colour alone. */
+  a {
+    color: var(--color-teal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Highly visible keyboard focus on every interactive element. */
+  :focus-visible {
+    outline: 3px solid #b45309;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* Lighter focus ring on dark backgrounds so it stays visible. */
+  .bg-navy :focus-visible {
+    outline-color: #fbbf24;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}
