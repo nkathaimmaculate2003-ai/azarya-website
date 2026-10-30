@@ -1,5 +1,4 @@
-import { ButtonLink, Card, PageHeader, Placeholder, Section } from "@/components/ui";
-import { pendingConfirmation } from "@/content/site";
+import { ButtonLink, Card, PageHeader, Section } from "@/components/ui";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -97,9 +96,6 @@ export default function AboutPage() {
             <p className="mt-3 leading-relaxed">{vision}</p>
           </Card>
         </div>
-        <p className="mt-4">
-          <Placeholder>{pendingConfirmation.missionVision}</Placeholder>
-        </p>
       </Section>
 
       <Section id="values" title="Our values" tone="white">
@@ -125,9 +121,6 @@ export default function AboutPage() {
         <p className="max-w-3xl leading-relaxed">
           Details of our registration and governance will be published here once they are verified and approved for
           public display.
-        </p>
-        <p className="mt-4">
-          <Placeholder>{pendingConfirmation.registration}</Placeholder>
         </p>
       </Section>
 

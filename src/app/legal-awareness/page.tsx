@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ButtonLink, Notice, PageHeader, Placeholder, Section } from "@/components/ui";
+import { ButtonLink, Notice, PageHeader, Section } from "@/components/ui";
 import { FaqList } from "@/components/faq-list";
-import { disclaimer, pendingConfirmation, safetyNotice } from "@/content/site";
+import { disclaimer, safetyNotice } from "@/content/site";
 import { articles, faqs } from "@/content/resources";
 import { formatDate } from "@/lib/format";
 import { pageMetadata } from "@/lib/metadata";
@@ -63,9 +63,6 @@ export default function LegalAwarenessPage() {
           Printable leaflets and guides will be added here once they have been prepared and approved. We also plan to
           offer Kiswahili versions of priority resources in a future phase.
         </p>
-        <p className="mt-4">
-          <Placeholder>Approved downloadable resources (PDF leaflets or guides)</Placeholder>
-        </p>
       </Section>
 
       <Section id="faq" title="Frequently asked questions" tone="white">
@@ -79,16 +76,10 @@ export default function LegalAwarenessPage() {
               Where appropriate, we can help you identify qualified legal professionals or relevant services. A list of
               verified referral contacts will be published here once confirmed.
             </p>
-            <p>
-              <Placeholder>{pendingConfirmation.referralList}</Placeholder>
-            </p>
             <ButtonLink href="/contact">Ask a Question</ButtonLink>
           </div>
           <Notice kind="safety" title={safetyNotice.title}>
             <p>{safetyNotice.body}</p>
-            <p className="mt-3">
-              <Placeholder>{pendingConfirmation.emergencyContacts}</Placeholder>
-            </p>
           </Notice>
         </div>
       </Section>

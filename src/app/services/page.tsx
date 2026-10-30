@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { BulletList, ButtonLink, Notice, PageHeader, Placeholder, Section } from "@/components/ui";
-import { pendingConfirmation, safetyNotice } from "@/content/site";
+import { BulletList, ButtonLink, Notice, PageHeader, Section } from "@/components/ui";
+import { safetyNotice } from "@/content/site";
 import { services } from "@/content/services";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -72,14 +72,6 @@ export default function ServicesPage() {
           Please contact us to ask whether an appointment is needed, whether any costs apply and which languages we can
           support you in.
         </p>
-        <ul className="mt-4 space-y-2">
-          <li>
-            <Placeholder>{pendingConfirmation.feesAppointments}</Placeholder>
-          </li>
-          <li>
-            <Placeholder>{pendingConfirmation.languages}</Placeholder>
-          </li>
-        </ul>
       </Section>
 
       <Section tone="white">

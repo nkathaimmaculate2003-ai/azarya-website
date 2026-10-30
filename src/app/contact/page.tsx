@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/contact-form";
-import { Card, Notice, PageHeader, Placeholder, Section } from "@/components/ui";
-import { pendingConfirmation, safetyNotice, site } from "@/content/site";
+import { Card, Notice, PageHeader, Section } from "@/components/ui";
+import { safetyNotice, site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -28,9 +28,6 @@ export default function ContactPage() {
       <Section tone="white" className="!pb-0">
         <Notice kind="safety" title={safetyNotice.title}>
           <p>{safetyNotice.body}</p>
-          <p className="mt-3">
-            <Placeholder>{pendingConfirmation.emergencyContacts}</Placeholder>
-          </p>
         </Notice>
       </Section>
 
@@ -48,26 +45,17 @@ export default function ContactPage() {
                       Get directions on Google Maps<span className="sr-only"> (opens in a new tab)</span>
                     </a>
                   </p>
-                  {!site.location.mapUrl && (
-                    <p className="mt-2">
-                      <Placeholder>{pendingConfirmation.mapPin}</Placeholder>
-                    </p>
-                  )}
                 </div>
                 <div>
                   <p className="font-semibold text-navy">Phone</p>
                   <p>
                     <a href={site.contact.phoneHref}>{site.contact.phoneDisplay}</a>
                   </p>
-                  {site.contact.whatsappUrl ? (
+                  {site.contact.whatsappUrl && (
                     <p className="mt-1">
                       <a href={site.contact.whatsappUrl} target="_blank" rel="noopener noreferrer">
                         Message us on WhatsApp<span className="sr-only"> (opens in a new tab)</span>
                       </a>
-                    </p>
-                  ) : (
-                    <p className="mt-2">
-                      <Placeholder>{pendingConfirmation.whatsapp}</Placeholder>
                     </p>
                   )}
                 </div>
@@ -77,26 +65,18 @@ export default function ContactPage() {
                     <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
                   </p>
                 </div>
-                <div>
-                  <p className="font-semibold text-navy">Opening hours</p>
-                  {site.contact.openingHours ? (
+                {site.contact.openingHours && (
+                  <div>
+                    <p className="font-semibold text-navy">Opening hours</p>
                     <p>{site.contact.openingHours}</p>
-                  ) : (
-                    <p className="mt-1">
-                      <Placeholder>{pendingConfirmation.hours}</Placeholder>
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <p className="font-semibold text-navy">When to expect a reply</p>
-                  {site.contact.responseTime ? (
+                  </div>
+                )}
+                {site.contact.responseTime && (
+                  <div>
+                    <p className="font-semibold text-navy">When to expect a reply</p>
                     <p>{site.contact.responseTime}</p>
-                  ) : (
-                    <p className="mt-1">
-                      <Placeholder>{pendingConfirmation.responseTime}</Placeholder>
-                    </p>
-                  )}
-                </div>
+                  </div>
+                )}
               </address>
             </Card>
           </div>

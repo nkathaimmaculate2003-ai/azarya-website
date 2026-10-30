@@ -95,7 +95,7 @@ export function HeroCarousel({ slides, children }: { slides: HeroSlide[]; childr
       {/* Controls */}
       {slides.length > 1 && (
         <div className="absolute right-0 bottom-4 left-0">
-          <div className="mx-auto flex w-full max-w-6xl items-center gap-2 px-4 sm:px-6 lg:px-8">
+          <div className="flex w-full items-center gap-2 px-4 sm:px-6 lg:px-10 xl:px-16 2xl:px-24">
             <button
               type="button"
               onClick={() => setChoice(playing ? "paused" : "playing")}

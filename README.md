@@ -49,6 +49,7 @@ See [.env.example](.env.example). Never commit real values.
 | `RESEND_API_KEY` | Yes (production) | API key for [Resend](https://resend.com), the email service that delivers form enquiries. Server-side only. |
 | `CONTACT_TO_EMAIL` | Yes (production) | Inbox that receives enquiries (comma-separate for several). |
 | `CONTACT_FROM_EMAIL` | Yes (production) | Sender address on a domain verified in Resend. |
+| `GOOGLE_SITE_VERIFICATION` | No | Google Search Console verification code (the `content="..."` value of its HTML tag). Not needed if you verify by DNS. |
 | `CONTACT_DEV_LOG_ONLY` | No | `true` prints submissions to the terminal during local development. Ignored in production. |
 
 If the email variables are missing in production, the form shows an error and tells visitors to phone or email instead. **It never claims a message was sent unless the server confirms delivery.**
@@ -86,7 +87,7 @@ All editable content lives in `src/content/`. Each file has comments at the top 
 
 **Adding a programme:** add an entry in `programmes.ts` with an honest `status`. Never mark something `completed` unless it took place.
 
-**Filling in a placeholder:** placeholders appear on the site as dashed amber boxes labelled "To confirm before launch". Most disappear automatically when you fill in the matching value in `site.ts` (for example, setting `openingHours` or `whatsappUrl`). Others are written directly in the pages; search the code for `<Placeholder` to find them all.
+**Optional details:** WhatsApp, opening hours and response time are hidden while their value in `site.ts` is `null`. Set `whatsappUrl`, `openingHours` or `responseTime` and they appear on the Contact page automatically.
 
 **Adding a page:** create `src/app/<page-name>/page.tsx`, export `metadata` using `pageMetadata(...)`, add the link to `mainNav` or `footerLegalNav` in `site.ts`, and add the path to [src/app/sitemap.ts](src/app/sitemap.ts).
 
@@ -140,7 +141,7 @@ No analytics or advertising trackers are included. If the organisation later dec
 
 ## 10. Before-launch checklist
 
-**Facts the organisation must confirm** (each shows as a labelled placeholder on the site until filled in):
+**Facts the organisation should confirm** (the site leaves these out or uses general wording until they are added):
 
 - [ ] Approve final mission and vision wording (About page)
 - [ ] Approve all public-facing copy, including service descriptions, articles and FAQs

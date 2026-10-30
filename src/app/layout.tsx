@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     description: site.ogDescription,
   },
   formatDetection: { telephone: false },
+  robots: { index: true, follow: true },
+  // Google Search Console "HTML tag" verification. Set GOOGLE_SITE_VERIFICATION
+  // to the code from the tag's content="..." value. Not needed if you verified by DNS.
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport: Viewport = {

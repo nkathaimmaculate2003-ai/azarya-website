@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BulletList, Container, PageHeader, Placeholder } from "@/components/ui";
+import { BulletList, Container, PageHeader } from "@/components/ui";
 import { site } from "@/content/site";
 import { formatDate } from "@/lib/format";
 import { pageMetadata } from "@/lib/metadata";
@@ -32,13 +32,6 @@ export default function PrivacyNoticePage() {
       />
       <Container className="py-12">
         <div className="max-w-3xl text-lg leading-relaxed">
-          <p className="mb-6">
-            <Placeholder>
-              This notice is a draft. Have it reviewed against applicable Kenyan data-protection requirements, including
-              the Data Protection Act, 2019, before launch.
-            </Placeholder>
-          </p>
-
           <p>
             {site.name} (&quot;we&quot;, &quot;us&quot;) respects your privacy. This notice explains what information
             this website collects, why we collect it, how long we keep it and how to contact us about it.
@@ -76,17 +69,11 @@ export default function PrivacyNoticePage() {
             marketing. Our website hosting and email delivery providers may process this information on servers
             located outside Kenya.
           </p>
-          <p className="mt-3">
-            <Placeholder>Names of the hosting and email delivery providers used, once chosen</Placeholder>
-          </p>
 
           <H2>How long we keep it</H2>
           <p>
             We keep enquiries only for as long as needed to respond and for reasonable record-keeping, after which they
             are deleted.
-          </p>
-          <p className="mt-3">
-            <Placeholder>Specific retention period for enquiries (for example, 12 months) and deletion process</Placeholder>
           </p>
 
           <H2>Your choices and rights</H2>

@@ -3,15 +3,15 @@
  *
  * EDIT HERE to update the organisation name, contact details, location,
  * navigation and disclaimer text. Every page reads from this file, so a change
- * here updates the whole site.
- *
- * Anything listed in `pendingConfirmation` is shown on the site as a clearly
- * labelled placeholder until the organisation confirms it.
+ * here updates the whole site. Optional details left as `null` (WhatsApp,
+ * opening hours, response time) are simply hidden until filled in.
  */
 
 export const site = {
   name: "Azarya Justice and Mediation Hub",
   shortName: "Azarya",
+  /** Other names people may search for. Used in structured data for Google. */
+  alternateNames: ["Azarya", "Azarya Mediation Hub", "Azarya Justice Hub"],
   tagline: "Making Justice and Mediation More Accessible",
   description:
     "Learn about mediation, legal awareness and access-to-justice support from Azarya Justice and Mediation Hub in Kasarani, Nairobi.",
@@ -23,7 +23,7 @@ export const site = {
    * Public website address. Set NEXT_PUBLIC_SITE_URL in your environment once
    * the domain is confirmed; the fallback below is a placeholder.
    */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.org").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.azaryamediationhub.org").replace(/\/$/, ""),
 
   location: {
     display: "Kasarani, Off Seasons Road, Nairobi, Kenya",
@@ -54,23 +54,6 @@ export const site = {
 
   /** Add approved social media profile links here, e.g. { label: "Facebook", href: "https://..." }. */
   social: [] as { label: string; href: string }[],
-} as const;
-
-/** Items the organisation must confirm before launch. Shown on placeholders and in the README checklist. */
-export const pendingConfirmation = {
-  whatsapp: "Whether 0705 423 690 is also the organisation's WhatsApp number",
-  email: "Whether the Gmail address above is the long-term official email address",
-  hours: "Opening days and hours, if the organisation wants to publish them",
-  mapPin: "Exact map pin or shareable Google Maps link",
-  logo: "Approved logo and brand assets",
-  registration: "Publicly shareable registration details, if applicable",
-  social: "Official social media links",
-  feesAppointments: "Whether appointments are required and whether any services have fees",
-  languages: "Languages in which the organisation can reliably provide information or support",
-  responseTime: "Expected response time for enquiries",
-  emergencyContacts: "Verified emergency, protection and support contacts for Kenya",
-  referralList: "A verified list of referral organisations and qualified legal professionals",
-  missionVision: "Final wording of the mission and vision statements",
 } as const;
 
 export type NavItem = { label: string; href: string };

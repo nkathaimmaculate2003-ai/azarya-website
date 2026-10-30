@@ -47,6 +47,8 @@ const organisationJsonLd = {
   "@context": "https://schema.org",
   "@type": "NGO",
   name: site.name,
+  alternateName: site.alternateNames,
+  logo: `${site.url}/logo.png`,
   description: site.ogDescription,
   url: site.url,
   telephone: site.contact.phoneInternational,
@@ -59,6 +61,15 @@ const organisationJsonLd = {
   },
   areaServed: { "@type": "City", name: "Nairobi" },
   ...(site.social.length > 0 ? { sameAs: site.social.map((s) => s.href) } : {}),
+};
+
+/** Tells Google the site's name (shown above the link in search results). */
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  alternateName: site.alternateNames,
+  url: `${site.url}/`,
 };
 
 const howWeHelp = [
@@ -86,6 +97,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organisationJsonLd).replace(/</g, "\\u003c") }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c") }}
       />
 
       {/* Hero */}

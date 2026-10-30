@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
-/** Centred page-width wrapper with consistent side gutters. */
+/** Full-width page wrapper with side gutters that grow on larger screens. */
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
+  return <div className={`w-full px-4 sm:px-6 lg:px-10 xl:px-16 2xl:px-24 ${className}`}>{children}</div>;
 }
 
 type ButtonVariant = "primary" | "secondary" | "light";
@@ -81,18 +81,6 @@ export function Section({
         {children && <div className={title || intro ? "mt-8" : ""}>{children}</div>}
       </Container>
     </section>
-  );
-}
-
-/**
- * A clearly labelled placeholder for information the organisation has not yet
- * confirmed. Search the code for <Placeholder to find every one.
- */
-export function Placeholder({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-block rounded border-2 border-dashed border-amber-700 bg-amber-50 px-2 py-0.5 text-sm text-amber-900">
-      <strong className="font-semibold">To confirm before launch:</strong> {children}
-    </span>
   );
 }
 
